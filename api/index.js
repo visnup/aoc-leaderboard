@@ -6,7 +6,7 @@ const observableUserContent = new RegExp(
 
 export default function (req, res) {
   const { year, id, session = process.env.SESSION } = req.query;
-  console.log({ year, id }, session, req.headers.origin);
+  console.log({ year, id }, req.headers.origin);
   if (observableUserContent.test(req.headers.origin))
     res.setHeader("access-control-allow-origin", req.headers.origin);
   fetch(
