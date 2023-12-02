@@ -11,10 +11,6 @@ export default function (req, res) {
     res.setHeader("access-control-allow-origin", req.headers.origin);
   fetch(
     `https://adventofcode.com/${year}/leaderboard/private/view/${id}.json`,
-    {
-      headers: {
-        cookie: `session=${session}`,
-      },
-    }
+    { headers: { cookie: `session=${session}` } }
   ).then(({ body }) => body.pipe(res));
 }
